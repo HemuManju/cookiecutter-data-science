@@ -11,12 +11,7 @@ def no_curlies(filepath):
     with open(filepath, 'r') as f:
         data = f.read()
 
-    template_strings = [
-        '{{',
-        '}}',
-        '{%',
-        '%}'
-    ]
+    template_strings = ['{{', '}}', '{%', '%}']
 
     template_strings_in_file = [s in data for s in template_strings]
     return not any(template_strings_in_file)
@@ -103,11 +98,8 @@ class TestCookieSetup(object):
             'src/visualization',
         ]
 
-        ignored_dirs = [
-            str(self.path)
-        ]
+        ignored_dirs = [str(self.path)]
 
         abs_expected_dirs = [str(self.path / d) for d in expected_dirs]
         abs_dirs, _, _ = list(zip(*os.walk(self.path)))
         assert len(set(abs_expected_dirs + ignored_dirs) - set(abs_dirs)) == 0
-

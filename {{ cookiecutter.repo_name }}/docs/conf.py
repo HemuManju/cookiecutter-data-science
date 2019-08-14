@@ -17,7 +17,7 @@ import sys
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-# sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('../src/'))
 
 # -- General configuration -----------------------------------------------------
 
@@ -26,8 +26,11 @@ import sys
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = []
-
+extensions = [
+    'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary',
+    'sphinx.ext.viewcode', 'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.githubpages'
+]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -60,7 +63,7 @@ release = '0.1'
 # non-false value, then it is used:
 # today = ''
 # Else, today_fmt is used as the format for a strftime call.
-# today_fmt = '%B %d, %Y'
+today_fmt = '%B %d, %Y'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -74,24 +77,23 @@ exclude_patterns = ['_build']
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
-# add_module_names = True
+add_module_names = False
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-# show_authors = False
+show_authors = True
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+# pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
-
 
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -124,7 +126,7 @@ html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-# html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -166,7 +168,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = '{{ cookiecutter.repo_name }}doc'
 
-
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
@@ -183,8 +184,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index',
-     '{{ cookiecutter.repo_name }}.tex',
+    ('index', '{{ cookiecutter.repo_name }}.tex',
      u'{{ cookiecutter.project_name }} Documentation',
      u"{{ cookiecutter.author_name }}", 'manual'),
 ]
@@ -209,19 +209,16 @@ latex_documents = [
 # If false, no module index is generated.
 # latex_domain_indices = True
 
-
 # -- Options for manual page output --------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [
-    ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
-     [u"{{ cookiecutter.author_name }}"], 1)
-]
+man_pages = [('index', '{{ cookiecutter.repo_name }}',
+              u'{{ cookiecutter.project_name }} Documentation',
+              [u"{{ cookiecutter.author_name }}"], 1)]
 
 # If true, show URL addresses after external links.
 # man_show_urls = False
-
 
 # -- Options for Texinfo output ------------------------------------------------
 
@@ -229,7 +226,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
+    ('index', '{{ cookiecutter.repo_name }}',
+     u'{{ cookiecutter.project_name }} Documentation',
      u"{{ cookiecutter.author_name }}", '{{ cookiecutter.project_name }}',
      '{{ cookiecutter.description }}', 'Miscellaneous'),
 ]
