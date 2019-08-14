@@ -26,6 +26,4 @@ $ conda install cookiecutter
 ### To start a new project, run:
 ------------
 
-    cookiecutter https://github.com/human-in-the-loop-system-lab-hils/hils-cookiecutter-data-science.git
-
-[![asciicast](https://asciinema.org/a/244658.svg)](human-in-the-loop-system-lab-hils/hils-cookiecutter-data-science.git)
+    cookiecutter https://github.com/human-in-the-loop-system-lab/hils-cookiecutter-data-science.git
