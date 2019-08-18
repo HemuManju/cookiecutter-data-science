@@ -1,5 +1,7 @@
 # Cookiecutter Data Science
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 _A logical, reasonably standardized, but flexible project structure for doing and sharing data science work._
 
 
